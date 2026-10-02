@@ -438,6 +438,15 @@ table.sp{width:100%;border-collapse:collapse;min-width:640px}
 .czci img{display:block;width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
 .czsc.on .czci img{transform:scale(1.02)}
 .czct{padding:clamp(22px,3vw,32px);display:grid;grid-template-columns:1.4fr 1fr;gap:28px}
+@media (min-width:901px){
+ .czsc .czcard{height:min(640px,calc(100vh - 180px));display:flex;flex-direction:column}
+ .czsc .czci{flex:0 0 auto;height:34%;aspect-ratio:auto}
+ .czsc .czct{flex:1;min-height:0;overflow:hidden;padding:clamp(16px,2.2vw,24px)}
+ .czsc .czct h3{font-size:clamp(24px,2.4vw,34px);margin:8px 0 10px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+ .czsc .czct p{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+ .czsc .czct dd.k{font-size:clamp(32px,3vw,44px)}
+ .czsc .czft{flex:0 0 auto}
+}
 .czct .czm{color:var(--mint2)}
 .czct h3{font-family:var(--serif);font-weight:400;font-size:clamp(30px,3.2vw,44px);line-height:1.02;letter-spacing:0;margin:10px 0 12px}
 .czct p{color:var(--on2);margin:0}
