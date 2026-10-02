@@ -434,8 +434,11 @@ table.sp{width:100%;border-collapse:collapse;min-width:640px}
 .czrail a.off{display:none}.czrail a:hover{color:var(--on)}
 .czsc{scroll-margin-top:156px;padding:18.75px 0}.czsc:first-child{padding-top:0}
 .czsc.off{display:none}
-.czcard{background:rgba(0,0,0,.2);border:1px solid var(--line);border-radius:20px;overflow:hidden;opacity:.4;transform:scale(.97);transition:opacity .5s,transform .6s var(--ease),border-color .4s}
+.czcard{background:rgba(0,0,0,.2);border:1px solid var(--line);border-radius:20px;overflow:hidden;opacity:.4;transform:scale(.97);transition:opacity .5s,transform .6s var(--ease),border-color .4s;cursor:pointer}
 .czsc.on .czcard{opacity:1;transform:none;border-color:var(--line2)}
+.czcard:hover{border-color:rgba(191,240,210,.45)}
+.czcard:hover .golink{transform:translateX(4px)}
+.czcard:focus-visible{outline:2px solid var(--mint);outline-offset:3px}
 .czci{aspect-ratio:16/8;overflow:hidden;border-bottom:1px solid var(--line)}
 .czci img{display:block;width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
 .czsc.on .czci img{transform:scale(1.02)}
@@ -1025,6 +1028,8 @@ q("#czs").innerHTML=CZ.map((c,i)=>`<section class="czsc" data-i="${i}" id="cz-${
 <div class="czct"><div><span class="czm">${c.n} · ${c.sec}</span><h3>${c.th}</h3><p>${c.need}</p><div class="cztags">${c.cat.map(k=>`<span data-k="${k}">${CAT[k]}</span>`).join("")}</div></div>
 <dl><div><dt class="czm">Resultado</dt><dd class="k">${c.k}</dd><dd class="kl">${c.kl}</dd></div><div><dt class="czm">Papel</dt><dd>${c.ti} · ${c.co}</dd></div><div><dt class="czm">Time</dt><dd>${c.team}</dd></div></dl></div>
 <div class="czft"><a class="golink" href="${c.url}" target="_blank" rel="noopener">Ler case completo →</a></div></article></section>`).join("");
+let czx0=0,czy0=0;q("#czs").addEventListener("pointerdown",e=>{czx0=e.clientX;czy0=e.clientY});
+q("#czs").addEventListener("click",e=>{if(e.target.closest("a"))return;if(Math.abs(e.clientX-czx0)>6||Math.abs(e.clientY-czy0)>6)return;const sc=e.target.closest(".czsc");if(!sc)return;const c=CZ[+sc.dataset.i];window.open(c.url,"_blank","noopener")});
 function render(){const c=CZ[fi],v=vis(),pos=v.indexOf(fi)+1,fs=Math.min(72,Math.floor(266/(c.co.length*.52)));
  q("#czsl").innerHTML=`<span class="czm"><span>Case</span> ${p2(pos)} / ${p2(v.length)}</span><div class="czsw" id="czsw"><div class="czco" style="font-size:${fs}px">${c.co}</div><div class="czro">${c.ti}</div><div class="cztm"><span>${c.n}</span> · <span>${c.team}</span></div></div>
  <div class="czds"><span class="czm">Desafios deste case</span><ul>${CAT.map((t,k)=>`<li class="${c.cat.includes(k)?"on":""}">${t}</li>`).join("")}</ul></div>
