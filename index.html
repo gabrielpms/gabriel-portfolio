@@ -428,9 +428,8 @@ table.sp{width:100%;border-collapse:collapse;min-width:640px}
 .czds li.on{color:var(--on)}
 .czds li.on::before{background:var(--mint);border-color:var(--mint);box-shadow:0 0 0 4px rgba(191,240,210,.16)}
 .czrail{margin-top:auto;padding-top:22px;border-top:1px solid var(--line);display:grid}
-.czrail a{display:flex;justify-content:space-between;gap:12px;padding:6px 0;font-size:14px;color:var(--on3);transition:.25s;text-decoration:none}
-.czrail a small{font-size:12px;color:rgba(236,244,238,.32)}
-.czrail a.on{color:var(--mint)}.czrail a.on small{color:var(--mint2)}
+.czrail a{display:block;padding:6px 0;font-size:14px;color:var(--on3);transition:.25s;text-decoration:none}
+.czrail a.on{color:var(--mint)}
 .czrail a.off{display:none}.czrail a:hover{color:var(--on)}
 .czsc{scroll-margin-top:156px;padding:18.75px 0}.czsc:first-child{padding-top:0}
 .czsc.off{display:none}
@@ -1033,7 +1032,7 @@ q("#czs").addEventListener("click",e=>{if(e.target.closest("a"))return;if(Math.a
 function render(){const c=CZ[fi],v=vis(),pos=v.indexOf(fi)+1,fs=Math.min(72,Math.floor(266/(c.co.length*.52)));
  q("#czsl").innerHTML=`<span class="czm"><span>Case</span> ${p2(pos)} / ${p2(v.length)}</span><div class="czsw" id="czsw"><div class="czco" style="font-size:${fs}px">${c.co}</div><div class="czro">${c.ti}</div><div class="cztm"><span>${c.n}</span> · <span>${c.team}</span></div></div>
  <div class="czds"><span class="czm">Desafios deste case</span><ul>${CAT.map((t,k)=>`<li class="${c.cat.includes(k)?"on":""}">${t}</li>`).join("")}</ul></div>
- <nav class="czrail" aria-label="Cases">${CZ.map((o,i)=>`<a href="#cz-${o.id}" class="${i===fi?"on":""} ${v.includes(i)?"":"off"}"><span>${o.n}</span><small>${o.co}</small></a>`).join("")}</nav>`;
+ <nav class="czrail" aria-label="Cases">${CZ.map((o,i)=>`<a href="#cz-${o.id}" class="${i===fi?"on":""} ${v.includes(i)?"":"off"}"><span>${o.n}</span></a>`).join("")}</nav>`;
  q("#czmb").innerHTML=`<div class="r1"><span class="czco">${c.co}</span><span class="czro">${c.ti}</span><span class="pg">${v.map(i=>`<i class="${i===fi?"on":""}"></i>`).join("")}</span></div><div class="ds">${c.cat.map(k=>`<span>${CAT[k]}</span>`).join("")}</div>`;
  document.querySelectorAll(".czsc").forEach(s=>{const i=+s.dataset.i;s.classList.toggle("on",i===fi);s.classList.toggle("off",!v.includes(i))});
  document.querySelectorAll(".cztags span").forEach(t=>t.classList.toggle("hit",+t.dataset.k===flt));}
