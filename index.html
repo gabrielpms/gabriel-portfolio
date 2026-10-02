@@ -420,6 +420,13 @@ table.sp{width:100%;border-collapse:collapse;min-width:640px}
 .czsl .czco{font-family:var(--serif);line-height:.9;margin-top:22px;letter-spacing:-.01em;background:linear-gradient(90deg,#fff,var(--mint));-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:4px}
 .czro{font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--mint2);margin-top:12px}
 .cztm{color:var(--on3);font-size:13px;margin-top:6px}
+.czds{margin-top:26px}
+.czds .czm{color:var(--on3);display:block;margin-bottom:10px}
+.czds ul{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.czds li{display:flex;align-items:center;gap:12px;padding:6px 0;font-size:15px;color:rgba(236,244,238,.3);transition:color .3s}
+.czds li::before{content:'';width:10px;height:10px;border-radius:50%;border:1px solid rgba(191,240,210,.3);transition:.3s;flex:none}
+.czds li.on{color:var(--on)}
+.czds li.on::before{background:var(--mint);border-color:var(--mint);box-shadow:0 0 0 4px rgba(191,240,210,.16)}
 .czsc{scroll-margin-top:156px;padding:18.75px 0}.czsc:first-child{padding-top:0}
 .czsc.off{display:none}
 .czcard{background:rgba(0,0,0,.2);border:1px solid var(--line);border-radius:20px;overflow:hidden;opacity:.4;transform:scale(.97);transition:opacity .5s,transform .6s var(--ease),border-color .4s;cursor:pointer}
@@ -1019,7 +1026,8 @@ q("#czs").innerHTML=CZ.map((c,i)=>`<section class="czsc" data-i="${i}" id="cz-${
 let czx0=0,czy0=0;q("#czs").addEventListener("pointerdown",e=>{czx0=e.clientX;czy0=e.clientY});
 q("#czs").addEventListener("click",e=>{if(e.target.closest("a"))return;if(Math.abs(e.clientX-czx0)>6||Math.abs(e.clientY-czy0)>6)return;const sc=e.target.closest(".czsc");if(!sc)return;const c=CZ[+sc.dataset.i];window.open(c.url,"_blank","noopener")});
 function render(){const c=CZ[fi],v=vis(),pos=v.indexOf(fi)+1,fs=Math.min(72,Math.floor(266/(c.co.length*.52)));
- q("#czsl").innerHTML=`<span class="czm"><span>Case</span> ${p2(pos)} / ${p2(v.length)}</span><div class="czsw" id="czsw"><div class="czco" style="font-size:${fs}px">${c.co}</div><div class="czro">${c.ti}</div><div class="cztm"><span>${c.n}</span> · <span>${c.team}</span></div></div>`;
+ q("#czsl").innerHTML=`<span class="czm"><span>Case</span> ${p2(pos)} / ${p2(v.length)}</span><div class="czsw" id="czsw"><div class="czco" style="font-size:${fs}px">${c.co}</div><div class="czro">${c.ti}</div><div class="cztm"><span>${c.n}</span> · <span>${c.team}</span></div></div>
+ <div class="czds"><span class="czm">Desafios deste case</span><ul>${CAT.map((t,k)=>`<li class="${c.cat.includes(k)?"on":""}">${t}</li>`).join("")}</ul></div>`;
  q("#czmb").innerHTML=`<div class="r1"><span class="czco">${c.co}</span><span class="czro">${c.ti}</span><span class="pg">${v.map(i=>`<i class="${i===fi?"on":""}"></i>`).join("")}</span></div><div class="ds">${c.cat.map(k=>`<span>${CAT[k]}</span>`).join("")}</div>`;
  document.querySelectorAll(".czsc").forEach(s=>{const i=+s.dataset.i;s.classList.toggle("on",i===fi);s.classList.toggle("off",!v.includes(i))});
  document.querySelectorAll(".cztags span").forEach(t=>t.classList.toggle("hit",+t.dataset.k===flt));}
