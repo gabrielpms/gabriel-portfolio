@@ -212,6 +212,7 @@ table.sp{width:100%;border-collapse:collapse;min-width:640px}
 .bkfade{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,6,12,.6) 0%,rgba(8,6,12,0) 56%)}
 .bk-ux{background:linear-gradient(150deg,#9B7E97 0%,#7C5172 55%,#5C3A58 100%)}
 .bk-jungle{background:linear-gradient(160deg,#3D2049 0%,#241330 60%,#150C1C 100%)}
+.bk-jungle-ring{position:absolute;top:-22%;left:16%;width:130%;aspect-ratio:1;border-radius:50%;background:conic-gradient(from 128deg,#E8743B 0deg 64deg,#1D6779 64deg 122deg,#C98F3E 122deg 156deg,#3C5580 156deg 182deg,transparent 182deg 360deg);-webkit-mask:radial-gradient(circle,transparent 60%,#000 61%,#000 73%,transparent 74%);mask:radial-gradient(circle,transparent 60%,#000 61%,#000 73%,transparent 74%)}
 .bk-discovery{background:linear-gradient(200deg,#0F4A57 0%,#0A3240 60%,#081F2A 100%)}
 .bk-dados{background:linear-gradient(155deg,#392E64 0%,#2A2150 55%,#1C1836 100%)}
 .bk-strategy{background:linear-gradient(155deg,#17251E 0%,#101712 60%,#090D0B 100%)}
@@ -1078,7 +1079,7 @@ const CONT={
  artigos:[["t2","UX Collective BR","Uma carta aberta à comunidade de design","Artigo","Uma carta aberta à comunidade de design","Sobre os caminhos da disciplina e por que o design precisa voltar a escalar.","https://brasil.uxdesign.cc/uma-carta-aberta-a-comunidade-de-design-509b51fbc50c"],["t3","Medium","Todos os artigos","Artigos","Artigos no Medium","Textos sobre estratégia de produto, design e liderança.","https://medium.com/@gabriel2ds"]]};
 const BKICON={
  ux:`<svg class="bkic" viewBox="0 0 100 125" preserveAspectRatio="none" aria-hidden="true"><polygon points="78,45 128,72 128,126 78,153 28,126 28,72" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="2.6"/></svg>`,
- jungle:`<svg class="bkic" viewBox="0 0 100 125" preserveAspectRatio="none" aria-hidden="true"><circle cx="92" cy="4" r="64" fill="none" stroke="#E8743B" stroke-width="22" stroke-linecap="round" stroke-dasharray="122.9 279.2" transform="rotate(-90 92 4)"/><circle cx="92" cy="4" r="64" fill="none" stroke="#1D6779" stroke-width="22" stroke-linecap="round" stroke-dasharray="100.6 301.5" transform="rotate(25 92 4)"/></svg>`,
+ jungle:`<div class="bk-jungle-ring" aria-hidden="true"></div>`,
  discovery:`<svg class="bkic" viewBox="0 0 100 125" preserveAspectRatio="none" aria-hidden="true"><defs><radialGradient id="orbG" cx="35%" cy="30%" r="75%"><stop offset="0%" stop-color="#EAFFF5"/><stop offset="40%" stop-color="#3FA98C"/><stop offset="75%" stop-color="#176378"/><stop offset="100%" stop-color="#0A3240"/></radialGradient><filter id="orbBlur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4"/></filter></defs><circle cx="74" cy="105" r="52" fill="url(#orbG)" filter="url(#orbBlur)"/></svg>`,
  dados:`<svg class="bkic" viewBox="0 0 100 125" preserveAspectRatio="none" aria-hidden="true"><circle cx="6" cy="12" r="42" fill="#fff" opacity=".14"/><polygon points="64,76 128,125 54,125" fill="#E0573F" opacity=".92"/></svg>`,
  strategy:`<svg class="bkic" viewBox="0 0 100 125" preserveAspectRatio="none" aria-hidden="true"><circle cx="16" cy="108" r="46" fill="none" stroke="#BFF0D2" stroke-width="2.4" opacity=".4"/><circle cx="16" cy="108" r="5" fill="#BFF0D2" opacity=".7"/></svg>`
