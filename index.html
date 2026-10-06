@@ -206,14 +206,14 @@ table.sp{width:100%;border-collapse:collapse;min-width:640px}
 .th small{position:relative;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;opacity:.75}
 .th strong{position:relative;font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(28px,2.6vw,36px);line-height:1}
 .t1{background:linear-gradient(135deg,var(--g0),var(--g2));color:var(--on)}.t2{background:var(--ink);color:var(--mint)}.t3{background:#DCE6DF;color:var(--pink)}
-.th.bk{aspect-ratio:5/7;transition:transform 1s var(--ease)}
+.th.bk{aspect-ratio:5/7;transition:transform 1s var(--ease);color:#fff}
 .it:hover .th.bk{transform:scale(1.045)}
-.bkic{position:absolute;right:0;bottom:0;width:78%;height:78%}
-.bk-ux{background:linear-gradient(150deg,#C9BBC9 0%,#A689A0 45%,#874C7C 100%)}
-.bk-jungle{background:linear-gradient(160deg,#3D2049 0%,#271531 60%,#160D1D 100%)}
-.bk-discovery{background:linear-gradient(180deg,#F3F8F5 0%,#F3F8F5 26%,#0C3C4A 26%,#0C3C4A 100%)}
-.bk-dados{background:linear-gradient(155deg,#3C316B 0%,#2C2350 55%,#1E1A3A 100%)}
-.bk-discovery .bkic{width:92%;height:92%;opacity:.95}
+.bkic{position:absolute;inset:0;width:100%;height:100%}
+.bkfade{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,6,12,.6) 0%,rgba(8,6,12,0) 56%)}
+.bk-ux{background:linear-gradient(150deg,#9B7E97 0%,#7C5172 55%,#5C3A58 100%)}
+.bk-jungle{background:linear-gradient(160deg,#3D2049 0%,#241330 60%,#150C1C 100%)}
+.bk-discovery{background:linear-gradient(200deg,#0F4A57 0%,#0A3240 60%,#081F2A 100%)}
+.bk-dados{background:linear-gradient(155deg,#392E64 0%,#2A2150 55%,#1C1836 100%)}
 .bd{padding:18px 20px 22px}
 .bd .k{font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--pi3)}
 .bd h4{font-weight:700;font-size:16.5px;margin-top:6px;line-height:1.3;letter-spacing:-.015em;color:var(--pink)}
@@ -1076,13 +1076,13 @@ const CONT={
  podcasts:[["t1", "Podcast", "Good Morning UX", "Podcast", "Good Morning UX", "Participação em um dos maiores podcasts de design e experiência do Brasil.", "https://www.youtube.com/watch?v=YyQ6MLvs80M"], ["t2", "Podcast", "UX Chat", "Podcast", "UX Chat", "Participação no episódio 138 do UX Chat.", "https://www.youtube.com/watch?v=G5ThKXiV0c8"], ["t3", "Podcast", "Semiose", "Podcast", "Semiose", "Podcast de Luan Mateus, criador do Papo de UX, e David Arty, criador do Chief of Design, sobre UX, design e produto.", "https://www.youtube.com/watch?v=dRV4YN6iHf8"], ["t1", "Podcast", "Chief's Tips", "Podcast", "Chief's Tips", "Uma conversa aberta e bem-humorada de David Arty com assinantes e convidados.", "https://www.youtube.com/watch?v=PFStXZGuUNw"], ["t2", "Editora Brauer", "Visões de produto compartilhadas", "Podcast", "Editora Brauer", "Detalhes sobre o framework criado para construir visões de produto compartilhadas.", "https://www.youtube.com/watch?v=djOPN3Ozdko"]],
  artigos:[["t2","UX Collective BR","Uma carta aberta à comunidade de design","Artigo","Uma carta aberta à comunidade de design","Sobre os caminhos da disciplina e por que o design precisa voltar a escalar.","https://brasil.uxdesign.cc/uma-carta-aberta-a-comunidade-de-design-509b51fbc50c"],["t3","Medium","Todos os artigos","Artigos","Artigos no Medium","Textos sobre estratégia de produto, design e liderança.","https://medium.com/@gabriel2ds"]]};
 const BKICON={
- ux:`<svg class="bkic" viewBox="0 0 120 120" aria-hidden="true"><polygon points="60,10 100,32 100,80 60,102 20,80 20,32" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="2.5"/><rect x="18" y="86" width="16" height="16" rx="3" fill="rgba(255,255,255,.32)"/><rect x="36" y="70" width="16" height="16" rx="3" fill="rgba(255,255,255,.48)"/><rect x="54" y="54" width="16" height="16" rx="3" fill="rgba(255,255,255,.68)"/></svg>`,
- jungle:`<svg class="bkic" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="34" fill="none" stroke="#E8743B" stroke-width="22" stroke-dasharray="53.4 160.2" transform="rotate(-90 60 60)"/><circle cx="60" cy="60" r="34" fill="none" stroke="#1D6779" stroke-width="22" stroke-dasharray="53.4 160.2" transform="rotate(0 60 60)"/><circle cx="60" cy="60" r="34" fill="none" stroke="#F0B33B" stroke-width="22" stroke-dasharray="53.4 160.2" transform="rotate(90 60 60)"/><circle cx="60" cy="60" r="34" fill="none" stroke="#44609E" stroke-width="22" stroke-dasharray="53.4 160.2" transform="rotate(180 60 60)"/><circle cx="60" cy="60" r="20" fill="#fff"/><circle cx="60" cy="60" r="12" fill="#1a1024"/></svg>`,
- discovery:`<svg class="bkic" viewBox="0 0 120 120" aria-hidden="true"><defs><radialGradient id="orb1" cx="38%" cy="34%" r="75%"><stop offset="0%" stop-color="#eafff3"/><stop offset="35%" stop-color="#3B9B86"/><stop offset="70%" stop-color="#1D6779"/><stop offset="100%" stop-color="#123a52"/></radialGradient><filter id="soft"><feGaussianBlur stdDeviation="3"/></filter></defs><circle cx="60" cy="64" r="46" fill="url(#orb1)" filter="url(#soft)"/></svg>`,
- dados:`<svg class="bkic" viewBox="0 0 120 120" aria-hidden="true"><circle cx="40" cy="38" r="26" fill="#fff" opacity=".92"/><polygon points="78,24 108,78 48,78" fill="#E0573F"/><rect x="54" y="48" width="34" height="34" fill="#fff" opacity=".85" transform="rotate(45 71 65)"/><circle cx="86" cy="92" r="16" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="2"/><circle cx="24" cy="92" r="5" fill="#E0573F"/></svg>`
+ ux:`<svg class="bkic" viewBox="0 0 100 140" aria-hidden="true"><polygon points="78,55 128,82 128,136 78,163 28,136 28,82" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="2.6"/></svg>`,
+ jungle:`<svg class="bkic" viewBox="0 0 100 140" aria-hidden="true"><circle cx="82" cy="18" r="50" fill="none" stroke="#E8743B" stroke-width="30" stroke-dasharray="78.54 235.62" transform="rotate(-90 82 18)"/><circle cx="82" cy="18" r="50" fill="none" stroke="#1D6779" stroke-width="30" stroke-dasharray="78.54 235.62" transform="rotate(0 82 18)"/><circle cx="82" cy="18" r="50" fill="none" stroke="#F0B33B" stroke-width="30" stroke-dasharray="78.54 235.62" transform="rotate(90 82 18)"/><circle cx="82" cy="18" r="50" fill="none" stroke="#44609E" stroke-width="30" stroke-dasharray="78.54 235.62" transform="rotate(180 82 18)"/></svg>`,
+ discovery:`<svg class="bkic" viewBox="0 0 100 140" aria-hidden="true"><defs><radialGradient id="orbG" cx="35%" cy="30%" r="75%"><stop offset="0%" stop-color="#EAFFF5"/><stop offset="40%" stop-color="#3FA98C"/><stop offset="75%" stop-color="#176378"/><stop offset="100%" stop-color="#0A3240"/></radialGradient><filter id="orbBlur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4"/></filter></defs><circle cx="76" cy="118" r="58" fill="url(#orbG)" filter="url(#orbBlur)"/></svg>`,
+ dados:`<svg class="bkic" viewBox="0 0 100 140" aria-hidden="true"><circle cx="6" cy="14" r="46" fill="#fff" opacity=".14"/><polygon points="64,86 130,140 54,140" fill="#E0573F" opacity=".92"/></svg>`
 };
 const cont=document.getElementById("cont"),tabs=[...document.querySelectorAll(".tabs button")];
-function showTab(t){tabs.forEach(b=>b.setAttribute("aria-selected",b.dataset.t===t));cont.innerHTML=CONT[t].map(([c,s,title,kind,h,p,u,bk])=>`<a class="it" href="${u}" target="_blank" rel="noopener"><div class="th ${bk?"bk bk-"+bk:c}">${bk?BKICON[bk]:`<small>${esc(s)}</small><strong>${esc(title)}</strong>`}</div><div class="bd"><span class="k">${esc(kind)}</span><h4>${esc(h)}</h4><p>${esc(p)}</p></div></a>`).join("")}
+function showTab(t){tabs.forEach(b=>b.setAttribute("aria-selected",b.dataset.t===t));cont.innerHTML=CONT[t].map(([c,s,title,kind,h,p,u,bk])=>`<a class="it" href="${u}" target="_blank" rel="noopener"><div class="th ${bk?"bk bk-"+bk:c}">${bk?BKICON[bk]+`<span class="bkfade"></span>`:""}<small>${esc(s)}</small><strong>${esc(title)}</strong></div><div class="bd"><span class="k">${esc(kind)}</span><h4>${esc(h)}</h4><p>${esc(p)}</p></div></a>`).join("")}
 tabs.forEach(b=>b.addEventListener("click",()=>showTab(b.dataset.t)));showTab("livros");
 
 /* ===== reveals, table, counters ===== */
