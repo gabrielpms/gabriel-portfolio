@@ -1104,6 +1104,11 @@ if("IntersectionObserver" in window){
 }else{document.querySelectorAll(".rv").forEach(e=>e.classList.add("vis"));document.querySelectorAll("#sp tbody tr").forEach(r=>r.classList.add("on","ai-on"))}
 document.getElementById("copy").addEventListener("click",async e=>{const b=e.currentTarget,el=document.getElementById("mail");try{await navigator.clipboard.writeText(el.textContent);b.textContent="E-mail copiado"}catch(_){const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent="Selecionado: Ctrl+C"}setTimeout(()=>b.textContent="Copiar e-mail",2200)});
 
+/* ===== Clarity custom events ===== */
+const ctrack=name=>{if(typeof window.clarity==="function")window.clarity("event",name)};
+document.getElementById("qaOpen")?.addEventListener("click",()=>ctrack("top_questions_click"));
+document.getElementById("openSheet")?.addEventListener("click",()=>ctrack("see_in_practice_click"));
+
 /* ===== carousels ===== */
 (()=>{
 function setup(el){const mob=!el.classList.contains("car");
