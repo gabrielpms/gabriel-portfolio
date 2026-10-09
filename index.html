@@ -427,7 +427,10 @@ table.sp{width:100%;border-collapse:collapse;min-width:640px}
 /* ===== 04 · cases por desafio ===== */
 #impacto.panel{overflow:clip}
 #impacto .ttl{margin-bottom:clamp(28px,3.4vw,44px)}
-.czgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,2.4vw,28px)}
+.czn{margin:0 0 18px}
+.czgrid{display:grid;grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:calc((100% - 20px)/2.2);gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;scroll-behavior:smooth;padding:6px 0 10px}
+.czgrid::-webkit-scrollbar{display:none}
+.czgrid>.czcard{scroll-snap-align:start;min-width:0}
 .czm{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
 .czcard{position:relative;background:rgba(0,0,0,.2);border:1px solid var(--line);border-radius:20px;overflow:hidden;cursor:pointer;display:flex;flex-direction:column;height:100%;transition:border-color .4s}
 .czcard:hover{border-color:rgba(191,240,210,.45)}
@@ -450,7 +453,10 @@ table.sp{width:100%;border-collapse:collapse;min-width:640px}
 .czft{padding:0 clamp(22px,2.6vw,30px) clamp(22px,2.6vw,30px)}
 .czft .golink{margin-top:0}
 @media (max-width:900px){
- .czgrid{grid-template-columns:minmax(0,1fr)}
+ .czgrid{grid-auto-columns:calc((100% - 16px)/1.7);gap:16px}
+}
+@media (max-width:640px){
+ .czgrid{grid-auto-columns:86%;gap:12px;margin:0 calc(-1*var(--pad));padding:6px var(--pad) 10px;scroll-padding-inline:var(--pad)}
 }
 @media (prefers-reduced-motion:reduce){.czcard,.czci img{transition:none}}
 
@@ -632,6 +638,7 @@ body.qlock{overflow:hidden}
 <section class="panel green" id="impacto">
   <div class="in">
     <div class="ttl rv"><span class="eyebrow">04 · Impacto</span><span class="s">complexidade real,</span><h2>valor real.</h2><p>Cada case parte de uma complexidade, passa por uma aposta estratégica e termina no valor gerado, para o cliente e para o negócio.</p></div>
+    <div class="cnav czn" id="czn"><div class="czcount"><b id="czcur">01</b><span>/</span><span id="cztot">14</span></div><div class="dots" aria-hidden="true"></div><div class="arr"><button type="button" aria-label="Anterior">←</button><button type="button" aria-label="Próximo">→</button></div></div>
     <div id="czs" class="czgrid"></div>
   </div>
 </section>
@@ -983,7 +990,18 @@ q("#czs").innerHTML=CZ.map((c,i)=>`<article class="czcard" data-i="${i}" id="cz-
 <dl><div><dt class="czm">Resultado</dt><dd class="k">${c.k}</dd><dd class="kl">${c.kl}</dd></div><div><dt class="czm">Papel</dt><dd>${c.ti} · ${c.co}</dd></div><div><dt class="czm">Time</dt><dd>${c.team}</dd></div></dl></div>
 <div class="czft"><a class="golink" href="${c.url}" target="_blank" rel="noopener">Ler case completo →</a></div></article>`).join("");
 let czx0=0,czy0=0;q("#czs").addEventListener("pointerdown",e=>{czx0=e.clientX;czy0=e.clientY});
-q("#czs").addEventListener("click",e=>{if(e.target.closest("a"))return;if(Math.abs(e.clientX-czx0)>6||Math.abs(e.clientY-czy0)>6)return;const card=e.target.closest(".czcard");if(!card)return;const c=CZ[+card.dataset.i];window.open(c.url,"_blank","noopener")});})();
+q("#czs").addEventListener("click",e=>{if(e.target.closest("a"))return;if(Math.abs(e.clientX-czx0)>6||Math.abs(e.clientY-czy0)>6)return;const card=e.target.closest(".czcard");if(!card)return;const c=CZ[+card.dataset.i];window.open(c.url,"_blank","noopener")});
+(()=>{const g=q("#czs"),n=q("#czn");if(!g||!n)return;const cur=q("#czcur"),tot=q("#cztot"),[pb,nb]=n.querySelectorAll(".arr button"),dt=n.querySelector(".dots");
+function it(){return[...g.children]}
+function dots(N,i){if(dt.children.length!==N)dt.innerHTML="<i></i>".repeat(N);[...dt.children].forEach((d,j)=>d.classList.toggle("on",j===i))}
+function vis(){const a=it();if(!a.length)return 1;const cs=getComputedStyle(g),w=a[0].getBoundingClientRect().width||1,gp=parseFloat(cs.columnGap)||0,W=g.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight);return Math.max(1,Math.floor((W+gp)/(w+gp)+0.05))}
+function maxI(){return Math.max(0,it().length-vis())}
+function idx(){const a=it();if(!a.length)return 0;const L=g.getBoundingClientRect().left+parseFloat(getComputedStyle(g).paddingLeft||0);let b=0,bd=1e9;a.forEach((e,i)=>{const d=Math.abs(e.getBoundingClientRect().left-L);if(d<bd){bd=d;b=i}});return Math.min(b,maxI())}
+function go(i){const a=it();i=Math.max(0,Math.min(maxI(),i));if(a[i])g.scrollTo({left:a[i].offsetLeft-a[0].offsetLeft,behavior:"smooth"})}
+function upd(){const N=it().length,i=idx(),m=maxI();n.hidden=m<=0;tot.textContent=String(N).padStart(2,"0");dots(N,i);cur.textContent=String(i+1).padStart(2,"0");pb.disabled=i<=0;nb.disabled=i>=m}
+let t;g.addEventListener("scroll",()=>{cancelAnimationFrame(t);t=requestAnimationFrame(upd)},{passive:true});
+pb.onclick=()=>go(idx()-1);nb.onclick=()=>go(idx()+1);
+addEventListener("resize",upd);setTimeout(upd,60);upd()})();})();
 
 /* ===== content tabs ===== */
 const CONT={
