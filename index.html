@@ -273,7 +273,7 @@ table.sp{width:100%;border-collapse:collapse;min-width:640px}
 .golink:hover{transform:translateX(4px)}
 .soon{display:inline-block;margin-top:18px;font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--on3)}
 /* timeline */
-.tl{margin-top:12px;border-radius:20px;background:rgba(0,0,0,.2);border:1px solid var(--line);padding:clamp(20px,3vw,32px)}
+.tl{position:relative;margin-top:12px;border-radius:20px;background:rgba(0,0,0,.2);border:1px solid var(--line);padding:clamp(20px,3vw,32px)}
 .eras{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding-top:34px}
 .eras::before{content:"";position:absolute;left:0;right:0;top:15px;height:1px;background:var(--line2)}
 .eras .fill{position:absolute;left:0;top:15px;height:1px;background:var(--mint);transition:width 1s var(--ease)}
@@ -677,6 +677,7 @@ body.qlock{overflow:hidden}
     <div class="ttl rv"><span class="eyebrow">02 · Experiência</span><span class="s">dezenove anos</span><h2>transformando complexidade em valor.</h2><p>Comecei desenhando telas e mapeando fluxos. Hoje estruturo áreas de design e desenho estratégia de produto, sem largar o produto. Navegue pelas fases.</p></div>
     <div class="xp-nums mcar rv"><div><b data-n="19">19</b><span>anos em design e produto</span></div><div><b data-n="6">6</b><span>anos liderando times</span></div><div><b data-n="50" data-p="+">+50</b><span>pessoas mentoradas</span></div><div><b data-n="40" data-s="+">40+</b><span>projetos entregues</span></div></div>
     <div class="tl rv" id="tl">
+      <i class="ring-pulse" aria-hidden="true"></i>
       <div class="eras" role="tablist" aria-label="Fases da trajetória" id="eras"></div>
       <div class="eraHead" id="eraHead"></div>
       <div class="roles car" id="roles"></div>
