@@ -366,6 +366,7 @@ table.sp{width:100%;border-collapse:collapse;min-width:640px}
 .bio figure img{position:relative;z-index:1;display:block;width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
 .bio figure:hover img{transform:scale(1.03)}
 .bio figure::after{content:"";position:absolute;inset:0;z-index:2;background-image:var(--grain);pointer-events:none}
+.ring-pulse{position:absolute;inset:0;z-index:3;border-radius:inherit;padding:1.4px;pointer-events:none;background:conic-gradient(from var(--cta-a),transparent 0deg,transparent 148deg,var(--mint2) 170deg,#fff 180deg,var(--mint2) 190deg,transparent 212deg,transparent 360deg);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask-composite:exclude;animation:shine 7.3s linear infinite}
 .bio figcaption{position:absolute;z-index:3;left:14px;bottom:14px;display:flex;align-items:center;gap:8px;padding:8px 13px 8px 10px;border-radius:999px;background:rgba(12,20,16,.62);border:1px solid var(--line2);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--on)}
 .bio figcaption i{width:7px;height:7px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 4px rgba(191,240,210,.18)}
 .bio .s{display:block;font-family:var(--serif);font-style:italic;font-size:clamp(30px,3.4vw,46px);line-height:1;color:var(--on2);margin-top:14px}
@@ -639,7 +640,7 @@ body.qlock{overflow:hidden}
 <section class="panel ink bio" id="sobre" aria-labelledby="bioH">
   <div class="in">
     <div class="bioL rv">
-    <figure id="bioFig"><canvas id="bioCv" role="img" aria-label="Gabriel Pinheiro sorrindo, em efeito de longa exposição com rastros de luz coral"></canvas><figcaption><i aria-hidden="true"></i>Head of Design</figcaption></figure>
+    <figure id="bioFig"><canvas id="bioCv" role="img" aria-label="Gabriel Pinheiro sorrindo, em efeito de longa exposição com rastros de luz coral"></canvas><i class="ring-pulse" aria-hidden="true"></i><figcaption><i aria-hidden="true"></i>Head of Design</figcaption></figure>
         <dl class="facts side">
         <div><dt>Trajetória</dt><dd><b>19 anos</b>40+ projetos entregues</dd></div>
         <div><dt>Liderança</dt><dd><b>6 anos</b>50+ mentoradas</dd></div>
