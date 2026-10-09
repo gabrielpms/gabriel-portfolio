@@ -454,9 +454,11 @@ table.sp{width:100%;border-collapse:collapse;min-width:640px}
 .czds li.on::before{background:var(--mint);border-color:var(--mint);box-shadow:0 0 0 4px rgba(191,240,210,.16)}
 .czsc{scroll-margin-top:156px;padding:18.75px 0}.czsc:first-child{padding-top:0}
 .czsc.off{display:none}
-.czcard{background:rgba(0,0,0,.2);border:1px solid var(--line);border-radius:20px;overflow:hidden;opacity:.4;transform:scale(.97);transition:opacity .5s,transform .6s var(--ease),border-color .4s;cursor:pointer}
+.czcard{position:relative;background:rgba(0,0,0,.2);border:1px solid var(--line);border-radius:20px;overflow:hidden;opacity:.4;transform:scale(.97);transition:opacity .5s,transform .6s var(--ease),border-color .4s;cursor:pointer}
 .czsc.on .czcard{opacity:1;transform:none;border-color:var(--line2)}
 .czcard:hover{border-color:rgba(191,240,210,.45)}
+.czcard .ring-pulse{opacity:0;animation-play-state:paused;transition:opacity .3s}
+.czcard:hover .ring-pulse,.czcard:focus-visible .ring-pulse{opacity:1;animation-play-state:running}
 .czcard:hover .golink{transform:translateX(4px)}
 .czcard:focus-visible{outline:2px solid var(--mint);outline-offset:3px}
 .czci{aspect-ratio:16/8;overflow:hidden;border-bottom:1px solid var(--line)}
@@ -1055,7 +1057,7 @@ const q=s=>document.querySelector(s);let fi=0,flt=-1;
 const vis=()=>CZ.map((c,i)=>i).filter(i=>flt<0||CZ[i].cat.includes(flt));
 const p2=n=>String(n).padStart(2,"0");
 q("#czc").innerHTML=`<button type="button" class="czchip" data-f="-1" aria-pressed="true"><span>Todos</span><i>${CZ.length}</i></button>`+CAT.map((t,k)=>`<button type="button" class="czchip" data-f="${k}" aria-pressed="false"><span>${t}</span><i>${CZ.filter(c=>c.cat.includes(k)).length}</i></button>`).join("");
-q("#czs").innerHTML=CZ.map((c,i)=>`<section class="czsc" data-i="${i}" id="cz-${c.id}"><article class="czcard"><div class="czci"><img src="${c.img}" alt="${c.n}" loading="lazy"></div>
+q("#czs").innerHTML=CZ.map((c,i)=>`<section class="czsc" data-i="${i}" id="cz-${c.id}"><article class="czcard"><i class="ring-pulse" aria-hidden="true"></i><div class="czci"><img src="${c.img}" alt="${c.n}" loading="lazy"></div>
 <div class="czct"><div><span class="czm">${c.n} · ${c.sec}</span><h3>${c.th}</h3><p>${c.need}</p><div class="cztags">${c.cat.map(k=>`<span data-k="${k}">${CAT[k]}</span>`).join("")}</div></div>
 <dl><div><dt class="czm">Resultado</dt><dd class="k">${c.k}</dd><dd class="kl">${c.kl}</dd></div><div><dt class="czm">Papel</dt><dd>${c.ti} · ${c.co}</dd></div><div><dt class="czm">Time</dt><dd>${c.team}</dd></div></dl></div>
 <div class="czft"><a class="golink" href="${c.url}" target="_blank" rel="noopener">Ler case completo →</a></div></article></section>`).join("");
