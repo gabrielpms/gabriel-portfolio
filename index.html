@@ -341,6 +341,12 @@ table.sp{width:100%;border-collapse:collapse;min-width:640px}
 @media (max-width:900px){.sheet-panel{left:0;right:0;overflow-y:auto}.sheet .panel.dz{height:auto;min-height:100%}.sheet .dz .dtop{padding-top:56px}}
 /* language switch */
 .navr{display:flex;align-items:center;gap:8px}
+@property --cta-a{syntax:'<angle>';inherits:false;initial-value:0deg}
+.herocta{all:unset;position:relative;pointer-events:auto;display:inline-flex;align-items:center;gap:9px;margin-top:22px;padding:12.5px 23px;border-radius:999px;border:1px solid rgba(236,244,238,.32);color:var(--on2);font-family:inherit;font-size:14.4px;font-weight:600;letter-spacing:.04em;white-space:nowrap;cursor:pointer;backdrop-filter:blur(2px);transition:border-color .3s,color .3s,background .3s;animation:rise 1.3s 1.05s var(--ease) both}
+.herocta::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.4px;pointer-events:none;background:conic-gradient(from var(--cta-a),transparent 0deg,transparent 148deg,var(--mint2) 170deg,#fff 180deg,var(--mint2) 190deg,transparent 212deg,transparent 360deg);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask-composite:exclude;animation:shine 11s linear infinite}
+.herocta:hover{border-color:var(--mint);color:var(--on);background:rgba(191,240,210,.1)}
+.herocta:focus-visible{outline:2px solid var(--mint);outline-offset:3px}
+@keyframes shine{to{--cta-a:360deg}}
 .lang{display:flex;gap:2px;padding:4px;border-radius:999px;background:rgba(12,20,16,.72);backdrop-filter:blur(14px) saturate(160%);-webkit-backdrop-filter:blur(14px) saturate(160%);border:1px solid var(--line2)}
 .lang button{all:unset;cursor:pointer;font-size:11px;font-weight:700;letter-spacing:.1em;padding:8px 11px;border-radius:999px;color:var(--on3);transition:background .3s,color .3s}
 .lang button:hover{color:var(--on)}
@@ -624,6 +630,7 @@ body.qlock{overflow:hidden}
     <h1>Complexidade vira <em>valor.</em></h1>
     <p class="tag">Para o cliente · Para o negócio</p>
     <p class="hsub">Estratégia de produto e liderança de design, da visão ao pixel.</p>
+    <button class="herocta" type="button" data-open-sheet aria-haspopup="dialog" aria-controls="sheet">Onde o valor está</button>
   </div></div>
   <span class="hint" aria-hidden="true">Mova o cursor</span>
   <div class="cue" aria-hidden="true">Role<i></i></div>
@@ -660,7 +667,7 @@ body.qlock{overflow:hidden}
       <thead><tr><th>Situação</th><th class="c">Como eu conduzo, com foco em outcome</th><th class="ai"><span>✦ Como uso IA na liderança</span></th></tr></thead>
       <tbody><tr><td>Time reativo</td><td class="c" data-label="Eu faço">Tiro o time da fila de pedidos e coloco o problema antes da solução.</td><td class="ai" data-label="+ IA">Redesenho o processo de design com a IA como alavanca de valor: o tempo que ela libera vai para entender o problema, e não para entregar mais telas.</td></tr><tr><td>Área sem estrutura</td><td class="c" data-label="Eu faço">Fundo processos, rituais e papéis sem parar a operação.</td><td class="ai" data-label="+ IA">Acompanho a saúde do time com IA e deixo claro que IA não é só fazer mais rápido: existe uma balança entre velocidade e qualidade, e ela faz parte do processo.</td></tr><tr><td>Baixa maturidade</td><td class="c" data-label="Eu faço">Desenvolvo mentalidade estratégica com PDI e prática guiada.</td><td class="ai" data-label="+ IA">Estruturo um acompanhamento conjunto de PDI que funciona como norte para a liderança e para cada pessoa do time, com evolução visível dos dois lados.</td></tr><tr><td>Design sem voz</td><td class="c" data-label="Eu faço">Levo o design para as decisões de produto, com dados e linguagem de negócio.</td><td class="ai" data-label="+ IA">Uso jornadas e métricas centralizadas para mostrar, com dados, o efeito do design no produto e no negócio, e não só na interface.</td></tr><tr><td>Sem visibilidade da experiência</td><td class="c" data-label="Eu faço">Componho visibilidade sobre as jornadas e métricas dos produtos, para o time decidir a partir da experiência real.</td><td class="ai" data-label="+ IA">Crio ferramentas que centralizam informações de fontes diferentes, inclusive do Figma, e mostram jornadas e métricas dos produtos em um só lugar.</td></tr><tr><td>Prioridades em conflito</td><td class="c" data-label="Eu faço">Alinho visão e horizontes com os stakeholders para decidir com clareza.</td><td class="ai" data-label="+ IA">Uso IA para manusear a complexidade de muitas informações ao mesmo tempo e compor direcionamentos e visões estratégicas para os produtos e o time.</td></tr></tbody></table></div></div>
     <p class="tn rv">IA não é só fazer mais rápido. <b>É ter visibilidade, qualidade e direção para decidir melhor.</b></p>
-    <div class="opener rv"><button class="zcta static" type="button" id="openSheet" aria-haspopup="dialog" aria-controls="sheet"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 20 20M7.5 10.5h6"/></svg></span><span><small>Veja na prática</small><span>Onde o valor está</span></span></button></div>
+    <div class="opener rv"><button class="zcta static" type="button" id="openSheet" data-open-sheet aria-haspopup="dialog" aria-controls="sheet"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 20 20M7.5 10.5h6"/></svg></span><span><small>Veja na prática</small><span>Onde o valor está</span></span></button></div>
   </div>
 </section>
 
@@ -1015,11 +1022,11 @@ show(3);
 })();
 
 /* ===== bottom sheet ===== */
-(()=>{const sh=document.getElementById("sheet"),op=document.getElementById("openSheet");let last;
-function open(){last=document.activeElement;sh.hidden=false;requestAnimationFrame(()=>{sh.classList.add("open");document.documentElement.style.overflow="hidden";setTimeout(()=>{dispatchEvent(new Event("dial:refresh"));document.getElementById("zcta").focus({preventScroll:true})},60)});
+(()=>{const sh=document.getElementById("sheet"),ops=[...document.querySelectorAll("[data-open-sheet]")];let last;
+function open(e){last=e?e.currentTarget:document.activeElement;sh.hidden=false;requestAnimationFrame(()=>{sh.classList.add("open");document.documentElement.style.overflow="hidden";setTimeout(()=>{dispatchEvent(new Event("dial:refresh"));document.getElementById("zcta").focus({preventScroll:true})},60)});
  document.querySelector(".fnav").classList.add("hide")}
 function close(){sh.classList.remove("open");document.documentElement.style.overflow="";setTimeout(()=>{sh.hidden=true},700);document.querySelector(".fnav").classList.remove("hide");last&&last.focus({preventScroll:true})}
-op.addEventListener("click",open);sh.querySelectorAll("[data-close]").forEach(e=>e.addEventListener("click",close));
+ops.forEach(b=>b.addEventListener("click",open));sh.querySelectorAll("[data-close]").forEach(e=>e.addEventListener("click",close));
 addEventListener("keydown",e=>{if(e.key==="Escape"&&sh.classList.contains("open"))close()});
 /* drag down to close */
 const pn=document.getElementById("sheetPanel"),gr=pn.querySelector(".grab");let y0=null,dy=0;
@@ -1107,7 +1114,7 @@ document.getElementById("copy").addEventListener("click",async e=>{const b=e.cur
 /* ===== Clarity custom events ===== */
 const ctrack=name=>{if(typeof window.clarity==="function")window.clarity("event",name)};
 document.getElementById("qaOpen")?.addEventListener("click",()=>ctrack("top_questions_click"));
-document.getElementById("openSheet")?.addEventListener("click",()=>ctrack("see_in_practice_click"));
+document.querySelectorAll("[data-open-sheet]").forEach(b=>b.addEventListener("click",()=>ctrack("see_in_practice_click")));
 
 /* ===== carousels ===== */
 (()=>{
