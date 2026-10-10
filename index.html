@@ -424,41 +424,38 @@ table.sp{width:100%;border-collapse:collapse;min-width:640px}
 }
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.js .rv:not(.vis){transform:none}}
 
-/* ===== 04 · cases por desafio ===== */
+/* ===== 04 · cases por categoria ===== */
 #impacto.panel{overflow:clip}
 #impacto .ttl{margin-bottom:clamp(28px,3.4vw,44px)}
-.czn{margin:0 0 18px}
-.czgrid{display:grid;grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:calc((100% - 20px)/2.2);gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;scroll-behavior:smooth;padding:6px 0 10px}
-.czgrid::-webkit-scrollbar{display:none}
-.czgrid>.czcard{scroll-snap-align:start;min-width:0}
-.czm{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
-.czcard{position:relative;background:rgba(0,0,0,.2);border:1px solid var(--line);border-radius:20px;overflow:hidden;cursor:pointer;display:flex;flex-direction:column;height:100%;transition:border-color .4s}
-.czcard:hover{border-color:rgba(191,240,210,.45)}
-.czcard .ring-pulse{opacity:0;animation-play-state:paused;transition:opacity .3s}
-.czcard:hover .ring-pulse,.czcard:focus-visible .ring-pulse{opacity:1;animation-play-state:running}
-.czcard:hover .golink{transform:translateX(4px)}
-.czcard:focus-visible{outline:2px solid var(--mint);outline-offset:3px}
-.czci{aspect-ratio:16/9;overflow:hidden;border-bottom:1px solid var(--line);background:#141C18}
-.czci svg{display:block;width:100%;height:100%;transition:transform 1.2s var(--ease)}
-.czcard:hover .czci svg{transform:scale(1.04)}
-.czct{padding:clamp(22px,2.6vw,30px);display:grid;gap:18px;flex:1}
-.czct .czm{color:var(--mint2)}
-.czct h3{font-family:var(--serif);font-weight:400;font-size:clamp(23px,2vw,28px);line-height:1.08;letter-spacing:0;margin:10px 0 12px}
-.czct p{color:var(--on2);margin:0}
-.czct dl{display:flex;flex-wrap:wrap;gap:16px 24px;border-top:1px solid var(--line);padding-top:16px;margin:0}
-.czct dt{color:var(--on3)}
-.czct dd{color:var(--on);margin:0}
-.czct dd.k{font-weight:800;font-size:clamp(26px,2.2vw,32px);letter-spacing:-.04em;line-height:1;background:linear-gradient(90deg,#fff,var(--mint));-webkit-background-clip:text;background-clip:text;color:transparent}
-.czct dd.kl{color:var(--on2);font-size:13px}
-.czft{padding:0 clamp(22px,2.6vw,30px) clamp(22px,2.6vw,30px)}
-.czft .golink{margin-top:0}
-@media (max-width:900px){
- .czgrid{grid-auto-columns:calc((100% - 16px)/1.7);gap:16px}
-}
-@media (max-width:640px){
- .czgrid{grid-auto-columns:86%;gap:12px;margin:0 calc(-1*var(--pad));padding:6px var(--pad) 10px;scroll-padding-inline:var(--pad)}
-}
-@media (prefers-reduced-motion:reduce){.czcard,.czci svg{transition:none}}
+.catgrid{display:flex;flex-wrap:wrap;gap:24px}
+.catcard{all:unset;box-sizing:border-box;flex:1 1 320px;min-width:260px;border-radius:22px;border:1px solid var(--line2);background:linear-gradient(160deg,#141C18,#0A3223 58%,#0F4A32);cursor:pointer;display:flex;flex-direction:column;text-align:left;transition:border-color .3s,transform .3s}
+.catcard:hover{border-color:rgba(191,240,210,.45);transform:translateY(-3px)}
+.catcard:focus-visible{outline:2px solid var(--mint);outline-offset:3px}
+.catcov{position:relative;height:180px;overflow:hidden;border-bottom:1px solid var(--line)}
+.catcov svg{display:block;width:100%;height:100%}
+.catbody{padding:28px;display:flex;flex-direction:column;gap:14px;flex:1;box-sizing:border-box}
+.catnum{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mint2)}
+.cattitle{font-family:var(--serif);font-weight:400;font-size:28px;line-height:1.1;color:var(--on);margin:0}
+.catdesc{font-size:14.5px;line-height:1.6;color:var(--on2);margin:0;flex:1}
+.catfoot{display:flex;align-items:center;justify-content:space-between;font-size:12.5px;color:var(--on3);padding-top:14px;border-top:1px solid var(--line)}
+.catfoot b{color:var(--on);font-weight:600}
+.catcta{color:var(--mint);font-weight:600}
+@media (prefers-reduced-motion:reduce){.catcard{transition:none}}
+.cs-desc{font-size:14px;color:var(--on2);max-width:620px;margin:10px 0 22px}
+.cs-hint{font-size:12px;color:var(--on3);margin:0 0 14px}
+.cs-row{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px}
+.cs-row::-webkit-scrollbar{height:6px}
+.cs-row::-webkit-scrollbar-thumb{background:var(--line2);border-radius:4px}
+.cs-card{scroll-snap-align:start;flex:0 0 300px;background:rgba(0,0,0,.2);border:1px solid var(--line);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:14px;box-sizing:border-box}
+.cs-card .golink{margin-top:0}
+.cs-m{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mint2)}
+.cs-card h4{font-family:var(--serif);font-weight:400;font-size:20px;line-height:1.15;color:var(--on);margin:0}
+.cs-need{font-size:13px;line-height:1.55;color:var(--on2);margin:0}
+.cs-dl{display:flex;gap:16px;border-top:1px solid var(--line);padding-top:14px;margin-top:auto}
+.cs-dt{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--on3);margin:0 0 4px}
+.cs-dd{font-weight:800;font-size:21px;color:var(--on);margin:0}
+.cs-role{font-size:11px;color:var(--on3);line-height:1.5;margin:0}
+@media (max-width:640px){.cs-card{flex-basis:84%}}
 
 /* ===== frase de fechamento ===== */
 .closer{margin:0 auto;max-width:980px;padding:clamp(56px,8vw,104px) var(--pad) clamp(40px,6vw,72px);text-align:center}
@@ -638,10 +635,11 @@ body.qlock{overflow:hidden}
 <section class="panel green" id="impacto">
   <div class="in">
     <div class="ttl rv"><span class="eyebrow">04 · Impacto</span><span class="s">complexidade real,</span><h2>valor real.</h2><p>Cada case parte de uma complexidade, passa por uma aposta estratégica e termina no valor gerado, para o cliente e para o negócio.</p></div>
-    <div class="cnav czn" id="czn"><div class="czcount"><b id="czcur">01</b><span>/</span><span id="cztot">14</span></div><div class="dots" aria-hidden="true"></div><div class="arr"><button type="button" aria-label="Anterior">←</button><button type="button" aria-label="Próximo">→</button></div></div>
-    <div id="czs" class="czgrid"></div>
+    <div id="catgrid" class="catgrid"></div>
   </div>
 </section>
+
+<div class="qsheet" id="czsheet" role="dialog" aria-modal="true" aria-labelledby="czsH" hidden><div class="qsbg" data-czclose></div><div class="qsp"><div class="qsgrab" aria-hidden="true"></div><button class="qsx" type="button" data-czclose aria-label="Fechar">×</button><div class="qsin"><div class="qah"><span class="eyebrow" id="czsEyebrow"></span><h3 id="czsH"></h3></div><p class="cs-desc" id="czsDesc"></p><p class="cs-hint">Arraste para o lado para ver os cases →</p><div class="cs-row" id="czsCases"></div></div></div></div>
 
 <section class="panel paper" id="conteudo">
   <div class="in">
@@ -1033,51 +1031,41 @@ calendar:'<rect x="3.5" y="5" width="17" height="15.5" rx="2"/><line x1="3.5" y1
 grid:'<rect x="4" y="4" width="7" height="7" rx="1.2"/><rect x="13" y="4" width="7" height="7" rx="1.2"/><rect x="4" y="13" width="7" height="7" rx="1.2"/><rect x="13" y="13" width="7" height="7" rx="1.2"/>',
 palette:'<path d="M12 3.5a8.5 8.2 0 1 0 0 16.4c1.3 0 2-.8 2-1.8 0-.5-.2-.9-.5-1.2-.3-.3-.5-.7-.5-1.2 0-1 .8-1.8 1.8-1.8H17a3.5 3.4 0 0 0 3.5-3.4c0-3.9-3.8-7-8.5-7Z"/><circle cx="8" cy="10.5" r="1.1" fill="currentColor" stroke="none"/><circle cx="11.3" cy="7.3" r="1.1" fill="currentColor" stroke="none"/><circle cx="15.3" cy="8.3" r="1.1" fill="currentColor" stroke="none"/>'
 };
-const CASE_ICONS={
-vw:["wheel","tire","headlight","speedlines"],
-fl:["dice","cards","chip"],
-flca:["lock","key","shieldcheck"],
-in:["chartbar","clipboardcheck","camera","store"],
-sw:["creditcard","coin","wallet","chartup"],
-gn:["wrench","broom","toolbox","handshake"],
-bv:["percent","car","coin","chartup"],
-ds:["layers","grid","palette","cursor"],
-wine:["bottle","glassflute","glassbowl","glasscoupe","cheese","grapes"],
-ze:["beermug","motorcycle","box","mappin","clock"],
-aic:["cpu","layers","gear","sparkle"],
-aiq:["bolt","sparkle","cursor","chartup"],
-plots:["playcircle","gradcap","calendar","sparkle"],
-coops:["grid","layers","cursor","palette"]
-};
+const CATS=[
+ {title:"Liderança estratégica e hands-on.",desc:"Times e produtos que assumi dentro de empresas e clientes — da leitura estratégica à execução, liderando squads sêniores sob pressão real.",icons:["wheel","creditcard","dice","lock"],hero:"wheel",cases:["vw","sw","bv","gn","flca"]},
+ {title:"Estratégia e fundação de time.",desc:"Áreas e times que precisavam de uma base: processo, sistema e direção construídos do zero, dentro e fora da empresa que fundei.",icons:["chartbar","cpu","bolt","layers"],hero:"layers",cases:["in","ds","aic","aiq","fl"]},
+ {title:"Comunidade e experimentação.",desc:"Projetos mais autorais: cultura de teste, conteúdo para a comunidade e ferramentas que construí por conta própria.",icons:["bottle","playcircle","grid","sparkle"],hero:"sparkle",cases:["wine","ze","plots","coops"]}
+];
 document.body.insertAdjacentHTML("afterbegin",`<svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">`+
 `<defs>${Object.keys(ICONS).map(k=>`<symbol id="ic-${k}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${ICONS[k]}</symbol>`).join("")}`+
 `<linearGradient id="czcovbg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#141C18"/><stop offset=".6" stop-color="#0A3223"/><stop offset="1" stop-color="#0F4A32"/></linearGradient></defs></svg>`);
 function czhash(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
 function mulberry32(seed){return function(){seed|=0;seed=seed+0x6D2B79F5|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
-function cover(c){const keys=CASE_ICONS[c.id]||["grid","layers","sparkle"];const rnd=mulberry32(czhash(c.id));const W=400,H=225,cols=5,rows=3;let g="",n=0;
-for(let r=0;r<rows;r++)for(let col=0;col<cols;col++){const cx=(col+.5)*(W/cols)+(rnd()-.5)*30,cy=(r+.5)*(H/rows)+(rnd()-.5)*22,key=keys[n%keys.length];n++;
+function catCover(cat,seed){const keys=cat.icons;const rnd=mulberry32(czhash(seed));const W=400,H=200,cols=4,rows=2;let g="",n=0;
+for(let r=0;r<rows;r++)for(let col=0;col<cols;col++){const cx=(col+.5)*(W/cols)+(rnd()-.5)*26,cy=(r+.5)*(H/rows)+(rnd()-.5)*20,key=keys[n%keys.length];n++;
 const rot=Math.round((rnd()-.5)*64),sc=(.85+rnd()*.5).toFixed(2),op=(.09+rnd()*.1).toFixed(2);
 g+=`<g transform="translate(${cx.toFixed(1)} ${cy.toFixed(1)}) rotate(${rot}) scale(${sc})" style="color:#ECF4EE" opacity="${op}"><use href="#ic-${key}" x="-12" y="-12" width="24" height="24"/></g>`}
-const hx=W*.8,hy=H*.28,hk=keys[0],hrot=Math.round((rnd()-.5)*16);
-g+=`<g transform="translate(${hx} ${hy}) rotate(${hrot}) scale(2.5)" style="color:#BFF0D2" opacity=".92"><use href="#ic-${hk}" x="-12" y="-12" width="24" height="24"/></g>`;
-return `<svg class="czcov" viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="${W}" height="${H}" fill="url(#czcovbg)"/>${g}</svg>`}
-q("#czs").innerHTML=CZ.map((c,i)=>`<article class="czcard" data-i="${i}" id="cz-${c.id}"><i class="ring-pulse" aria-hidden="true"></i><div class="czci">${cover(c)}</div>
-<div class="czct"><div><span class="czm">${c.n} · ${c.sec}</span><h3>${c.th}</h3><p>${c.need}</p></div>
-<dl><div><dt class="czm">Resultado</dt><dd class="k">${c.k}</dd><dd class="kl">${c.kl}</dd></div><div><dt class="czm">Papel</dt><dd>${c.ti} · ${c.co}</dd></div><div><dt class="czm">Time</dt><dd>${c.team}</dd></div></dl></div>
-<div class="czft"><a class="golink" href="${c.url}" target="_blank" rel="noopener">Ler case completo →</a></div></article>`).join("");
-let czx0=0,czy0=0;q("#czs").addEventListener("pointerdown",e=>{czx0=e.clientX;czy0=e.clientY});
-q("#czs").addEventListener("click",e=>{if(e.target.closest("a"))return;if(Math.abs(e.clientX-czx0)>6||Math.abs(e.clientY-czy0)>6)return;const card=e.target.closest(".czcard");if(!card)return;const c=CZ[+card.dataset.i];window.open(c.url,"_blank","noopener")});
-(()=>{const g=q("#czs"),n=q("#czn");if(!g||!n)return;const cur=q("#czcur"),tot=q("#cztot"),[pb,nb]=n.querySelectorAll(".arr button"),dt=n.querySelector(".dots");
-function it(){return[...g.children]}
-function dots(N,i){if(dt.children.length!==N)dt.innerHTML="<i></i>".repeat(N);[...dt.children].forEach((d,j)=>d.classList.toggle("on",j===i))}
-function vis(){const a=it();if(!a.length)return 1;const cs=getComputedStyle(g),w=a[0].getBoundingClientRect().width||1,gp=parseFloat(cs.columnGap)||0,W=g.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight);return Math.max(1,Math.floor((W+gp)/(w+gp)+0.05))}
-function maxI(){return Math.max(0,it().length-vis())}
-function idx(){const a=it();if(!a.length)return 0;const L=g.getBoundingClientRect().left+parseFloat(getComputedStyle(g).paddingLeft||0);let b=0,bd=1e9;a.forEach((e,i)=>{const d=Math.abs(e.getBoundingClientRect().left-L);if(d<bd){bd=d;b=i}});return Math.min(b,maxI())}
-function go(i){const a=it();i=Math.max(0,Math.min(maxI(),i));if(a[i])g.scrollTo({left:a[i].offsetLeft-a[0].offsetLeft,behavior:"smooth"})}
-function upd(){const N=it().length,i=idx(),m=maxI();n.hidden=m<=0;tot.textContent=String(N).padStart(2,"0");dots(N,i);cur.textContent=String(i+1).padStart(2,"0");pb.disabled=i<=0;nb.disabled=i>=m}
-let t;g.addEventListener("scroll",()=>{cancelAnimationFrame(t);t=requestAnimationFrame(upd)},{passive:true});
-pb.onclick=()=>go(idx()-1);nb.onclick=()=>go(idx()+1);
-addEventListener("resize",upd);setTimeout(upd,60);upd()})();})();
+const hx=W*.78,hy=H*.3,hrot=Math.round((rnd()-.5)*16);
+g+=`<g transform="translate(${hx} ${hy}) rotate(${hrot}) scale(2.3)" style="color:#BFF0D2" opacity=".92"><use href="#ic-${cat.hero}" x="-12" y="-12" width="24" height="24"/></g>`;
+return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="${W}" height="${H}" fill="url(#czcovbg)"/>${g}</svg>`}
+q("#catgrid").innerHTML=CATS.map((cat,i)=>`<button type="button" class="catcard" data-cat="${i}" aria-haspopup="dialog" aria-controls="czsheet"><div class="catcov">${catCover(cat,"cat"+i)}</div><div class="catbody"><span class="catnum">Categoria ${String(i+1).padStart(2,"0")}</span><h3 class="cattitle">${cat.title}</h3><p class="catdesc">${cat.desc}</p><div class="catfoot"><span><b>${cat.cases.length}</b> cases</span><span class="catcta">Ver cases →</span></div></div></button>`).join("");
+const sheetEl=q("#czsheet"),sheetPanel=sheetEl.querySelector(".qsp");let sheetLast;
+function czOpen(){sheetLast=document.activeElement;sheetEl.hidden=false;document.body.classList.add("qlock");requestAnimationFrame(()=>requestAnimationFrame(()=>sheetEl.classList.add("on")));setTimeout(()=>sheetEl.querySelector(".qsx").focus(),60)}
+function czClose(){sheetEl.classList.remove("on");sheetPanel.style.transform="";document.body.classList.remove("qlock");setTimeout(()=>{if(!sheetEl.classList.contains("on"))sheetEl.hidden=true},500);sheetLast&&sheetLast.focus&&sheetLast.focus()}
+sheetEl.querySelectorAll("[data-czclose]").forEach(e=>e.addEventListener("click",czClose));
+addEventListener("keydown",e=>{if(e.key==="Escape"&&!sheetEl.hidden)czClose()});
+const czgrab=sheetEl.querySelector(".qsgrab");let gy0=null,gdy=0;
+czgrab.addEventListener("pointerdown",e=>{gy0=e.clientY;gdy=0;sheetPanel.style.transition="none";czgrab.setPointerCapture(e.pointerId)});
+czgrab.addEventListener("pointermove",e=>{if(gy0==null)return;gdy=Math.max(0,e.clientY-gy0);sheetPanel.style.transform=`translateY(${gdy}px)`});
+czgrab.addEventListener("pointerup",()=>{sheetPanel.style.transition="";if(gdy>90)czClose();else sheetPanel.style.transform="";gy0=null});
+function openCat(i){const cat=CATS[i],list=cat.cases.map(id=>CZ.find(c=>c.id===id)).filter(Boolean);
+q("#czsEyebrow").textContent=`Categoria ${String(i+1).padStart(2,"0")} · ${list.length} cases`;
+q("#czsH").textContent=cat.title;
+q("#czsDesc").textContent=cat.desc;
+q("#czsCases").innerHTML=list.map(c=>`<article class="cs-card"><span class="cs-m">${c.n} · ${c.sec}</span><h4>${c.th}</h4><p class="cs-need">${c.need}</p><div class="cs-dl"><div><p class="cs-dt">Resultado</p><p class="cs-dd">${c.k}</p></div></div><p class="cs-role">${c.ti} · ${c.co} · ${c.team}</p><a class="golink" href="${c.url}" target="_blank" rel="noopener">Ler case completo →</a></article>`).join("");
+czOpen()}
+q("#catgrid").addEventListener("click",e=>{const b=e.target.closest(".catcard");if(!b)return;openCat(+b.dataset.cat)});
+})();
 
 /* ===== content tabs ===== */
 const CONT={
