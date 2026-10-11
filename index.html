@@ -1060,7 +1060,7 @@ function openCat(i){const cat=CATS[i],list=cat.cases.map(id=>CZ.find(c=>c.id===i
 q("#czsEyebrow").textContent=`Categoria ${String(i+1).padStart(2,"0")} · ${list.length} cases`;
 q("#czsH").textContent=cat.title;
 q("#czsDesc").textContent=cat.desc;
-q("#czsCases").innerHTML=list.map(c=>`<article class="cs-card"><span class="cs-m">${c.n} · ${c.sec}</span><h4>${c.th}</h4><p class="cs-need">${c.need}</p><div class="cs-dl"><div><p class="cs-dt">Resultado</p><p class="cs-dd">${c.k}</p></div></div><p class="cs-role">${c.ti} · ${c.co} · ${c.team}</p><a class="golink" href="${c.url}" target="_blank" rel="noopener">Ler case completo →</a></article>`).join("");
+q("#czsCases").innerHTML=list.map(c=>`<article class="cs-card"><span class="cs-m">${c.n} · ${c.sec}</span><h4>${c.th}</h4><p class="cs-need">${c.need}</p><div class="cs-dl"><div><p class="cs-dt">Resultado</p><p class="cs-dd">${c.k}</p></div></div><p class="cs-role"><span>${c.ti}</span> · ${c.co} · <span>${c.team}</span></p><a class="golink" href="${c.url}" target="_blank" rel="noopener">Ler case completo →</a></article>`).join("");
 czOpen()}
 q("#catgrid").addEventListener("click",e=>{const b=e.target.closest(".catcard");if(!b)return;openCat(+b.dataset.cat)});
 })();
