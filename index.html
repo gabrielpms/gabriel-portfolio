@@ -441,10 +441,11 @@ table.sp{width:100%;border-collapse:collapse;min-width:640px}
 .catfoot b{color:var(--on);font-weight:600}
 .catcta{color:var(--mint);font-weight:600}
 @media (prefers-reduced-motion:reduce){.catcard{transition:none}}
-.cs-desc{font-size:14px;color:var(--on2);max-width:620px;margin:10px 0 22px}
+.cs-desc{font-size:14px;color:var(--on2);max-width:620px;margin:10px auto 22px;text-align:center}
+#czsNav{margin-bottom:24px}
 .cs-row{display:flex;align-items:flex-start;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
 .cs-row::-webkit-scrollbar{display:none}
-.cs-card{scroll-snap-align:start;flex:0 0 300px;background:rgba(0,0,0,.2);border:1px solid var(--line);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:14px;box-sizing:border-box}
+.cs-card{scroll-snap-align:start;flex:0 0 calc((100% - 32px)/3);background:rgba(0,0,0,.2);border:1px solid var(--line);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:14px;box-sizing:border-box}
 .cs-card .golink{margin-top:0}
 .cs-m{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mint2)}
 .cs-card h4{font-family:var(--serif);font-weight:400;font-size:20px;line-height:1.15;color:var(--on);margin:0}
@@ -453,7 +454,8 @@ table.sp{width:100%;border-collapse:collapse;min-width:640px}
 .cs-dt{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--on3);margin:0 0 4px}
 .cs-dd{font-weight:800;font-size:21px;color:var(--on);margin:0}
 .cs-role{font-size:11px;color:var(--on3);line-height:1.5;margin:0}
-@media (max-width:640px){.cs-card{flex-basis:84%}}
+@media (max-width:1000px){.cs-card{flex-basis:calc((100% - 16px)/2)}}
+@media (max-width:640px){.cs-row{gap:10px}.cs-card{flex-basis:84%}}
 
 /* ===== frase de fechamento ===== */
 .closer{margin:0 auto;max-width:980px;padding:clamp(56px,8vw,104px) var(--pad) clamp(40px,6vw,72px);text-align:center}
