@@ -168,8 +168,10 @@ table.sp{width:100%;border-collapse:collapse;min-width:640px}
 }
 /* features (ink, glass) */
 .feats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.ft{background:rgba(236,244,238,.035);border:1px solid var(--line);border-radius:18px;padding:26px;transition:transform .6s var(--ease),border-color .4s,background .4s}
+.ft{position:relative;background:rgba(236,244,238,.035);border:1px solid var(--line);border-radius:18px;padding:26px;transition:transform .6s var(--ease),border-color .4s,background .4s}
 .ft:hover{transform:translateY(-4px);border-color:rgba(191,240,210,.3);background:rgba(191,240,210,.05)}
+.ft .ring-pulse{opacity:0;animation-play-state:paused;transition:opacity .3s}
+.ft:hover .ring-pulse,.ft:focus-visible .ring-pulse{opacity:1;animation-play-state:running}
 .ft .n{font-family:var(--mono);font-size:11px;color:var(--mint2);letter-spacing:.08em}
 .ft h3{font-weight:700;font-size:21px;letter-spacing:-.025em;margin-top:34px;line-height:1.15}
 .ft p{color:var(--on2);font-size:14.5px;margin-top:10px}
@@ -428,9 +430,11 @@ table.sp{width:100%;border-collapse:collapse;min-width:640px}
 #impacto.panel{overflow:clip}
 #impacto .ttl{margin-bottom:clamp(28px,3.4vw,44px)}
 .catgrid{display:flex;flex-wrap:wrap;gap:24px}
-.catcard{all:unset;box-sizing:border-box;flex:1 1 320px;min-width:260px;border-radius:22px;overflow:hidden;border:1px solid var(--line2);background:linear-gradient(160deg,#141C18,#0A3223 58%,#0F4A32);cursor:pointer;display:flex;flex-direction:column;text-align:left;transition:border-color .3s,transform .3s}
+.catcard{all:unset;position:relative;box-sizing:border-box;flex:1 1 320px;min-width:260px;border-radius:22px;overflow:hidden;border:1px solid var(--line2);background:linear-gradient(160deg,#141C18,#0A3223 58%,#0F4A32);cursor:pointer;display:flex;flex-direction:column;text-align:left;transition:border-color .3s,transform .3s}
 .catcard:hover{border-color:rgba(191,240,210,.45);transform:translateY(-3px)}
 .catcard:focus-visible{outline:2px solid var(--mint);outline-offset:3px}
+.catcard .ring-pulse{opacity:0;animation-play-state:paused;transition:opacity .3s}
+.catcard:hover .ring-pulse,.catcard:focus-visible .ring-pulse{opacity:1;animation-play-state:running}
 .catcov{position:relative;aspect-ratio:2/1;overflow:hidden;border-bottom:1px solid var(--line)}
 .catcov svg{display:block;width:100%;height:100%}
 .catbody{padding:28px;display:flex;flex-direction:column;gap:14px;flex:1;box-sizing:border-box}
@@ -621,12 +625,12 @@ body.qlock{overflow:hidden}
   <div class="in">
     <div class="ttl rv"><span class="eyebrow">03 · Perfil de liderança</span><span class="s">como eu</span><h2>lidero design.</h2><p>Atributos e competências que definem minha forma de atuar como líder de design.</p></div>
     <div class="feats mcar">
-      <div class="ft rv"><span class="n">L.01</span><h3>Liderança e desenvolvimento de pessoas</h3><p>Construo times de alta performance desenvolvendo competências técnicas e estratégicas, com foco em autonomia, ownership e evolução contínua.</p></div>
-      <div class="ft rv"><span class="n">L.02</span><h3>Design como sistema (Design Ops e escala)</h3><p>Estruturo processos, frameworks e rituais que escalam o design com consistência, eficiência e alinhamento organizacional.</p></div>
-      <div class="ft rv"><span class="n">L.03</span><h3>Ecossistemas e visão de produto</h3><p>Construo ecossistemas digitais, conectando produtos, serviços e jornadas para criar experiências integradas e valor contínuo.</p></div>
-      <div class="ft rv"><span class="n">L.04</span><h3>Inovação e inteligência artificial</h3><p>Integro IA generativa e analítica aos processos de design e produto, ampliando capacidade de entrega, velocidade e qualidade de decisão.</p></div>
-      <div class="ft rv"><span class="n">L.05</span><h3>Design estratégico</h3><p>Fortaleço o design como competência organizacional, promovendo uma cultura guiada por dados, experimentação e aprendizado contínuo.</p></div>
-      <div class="ft rv"><span class="n">L.06</span><h3>Liderança hands-on</h3><p>Trabalho junto com o time em todas as etapas do processo de design, do discovery à prototipação.</p></div>
+      <div class="ft rv"><i class="ring-pulse" aria-hidden="true"></i><span class="n">L.01</span><h3>Liderança e desenvolvimento de pessoas</h3><p>Construo times de alta performance desenvolvendo competências técnicas e estratégicas, com foco em autonomia, ownership e evolução contínua.</p></div>
+      <div class="ft rv"><i class="ring-pulse" aria-hidden="true"></i><span class="n">L.02</span><h3>Design como sistema (Design Ops e escala)</h3><p>Estruturo processos, frameworks e rituais que escalam o design com consistência, eficiência e alinhamento organizacional.</p></div>
+      <div class="ft rv"><i class="ring-pulse" aria-hidden="true"></i><span class="n">L.03</span><h3>Ecossistemas e visão de produto</h3><p>Construo ecossistemas digitais, conectando produtos, serviços e jornadas para criar experiências integradas e valor contínuo.</p></div>
+      <div class="ft rv"><i class="ring-pulse" aria-hidden="true"></i><span class="n">L.04</span><h3>Inovação e inteligência artificial</h3><p>Integro IA generativa e analítica aos processos de design e produto, ampliando capacidade de entrega, velocidade e qualidade de decisão.</p></div>
+      <div class="ft rv"><i class="ring-pulse" aria-hidden="true"></i><span class="n">L.05</span><h3>Design estratégico</h3><p>Fortaleço o design como competência organizacional, promovendo uma cultura guiada por dados, experimentação e aprendizado contínuo.</p></div>
+      <div class="ft rv"><i class="ring-pulse" aria-hidden="true"></i><span class="n">L.06</span><h3>Liderança hands-on</h3><p>Trabalho junto com o time em todas as etapas do processo de design, do discovery à prototipação.</p></div>
     </div>
   
   </div>
@@ -1048,7 +1052,7 @@ g+=`<g transform="translate(${cx.toFixed(1)} ${cy.toFixed(1)}) rotate(${rot}) sc
 const hx=W*.78,hy=H*.3,hrot=Math.round((rnd()-.5)*16);
 g+=`<g transform="translate(${hx} ${hy}) rotate(${hrot}) scale(2.3)" style="color:#BFF0D2" opacity=".92"><use href="#ic-${cat.hero}" x="-12" y="-12" width="24" height="24"/></g>`;
 return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="${W}" height="${H}" fill="url(#czcovbg)"/>${g}</svg>`}
-q("#catgrid").innerHTML=CATS.map((cat,i)=>`<button type="button" class="catcard" data-cat="${i}" aria-haspopup="dialog" aria-controls="czsheet"><div class="catcov">${catCover(cat,"cat"+i)}</div><div class="catbody"><span class="catnum">Categoria ${String(i+1).padStart(2,"0")}</span><h3 class="cattitle">${cat.title}</h3><p class="catdesc">${cat.desc}</p><div class="catfoot"><span><b>${cat.cases.length}</b> cases</span><span class="catcta">Ver cases →</span></div></div></button>`).join("");
+q("#catgrid").innerHTML=CATS.map((cat,i)=>`<button type="button" class="catcard" data-cat="${i}" aria-haspopup="dialog" aria-controls="czsheet"><i class="ring-pulse" aria-hidden="true"></i><div class="catcov">${catCover(cat,"cat"+i)}</div><div class="catbody"><span class="catnum">Categoria ${String(i+1).padStart(2,"0")}</span><h3 class="cattitle">${cat.title}</h3><p class="catdesc">${cat.desc}</p><div class="catfoot"><span><b>${cat.cases.length}</b> cases</span><span class="catcta">Ver cases →</span></div></div></button>`).join("");
 const sheetEl=q("#czsheet"),sheetPanel=sheetEl.querySelector(".qsp");let sheetLast;
 function czOpen(){sheetLast=document.activeElement;sheetEl.hidden=false;document.body.classList.add("qlock");requestAnimationFrame(()=>requestAnimationFrame(()=>sheetEl.classList.add("on")));setTimeout(()=>sheetEl.querySelector(".qsx").focus(),60)}
 function czClose(){sheetEl.classList.remove("on");sheetPanel.style.transform="";document.body.classList.remove("qlock");setTimeout(()=>{if(!sheetEl.classList.contains("on"))sheetEl.hidden=true},500);sheetLast&&sheetLast.focus&&sheetLast.focus()}
