@@ -4,9 +4,23 @@
       <stop offset="0" stop-color="#0A3223"/>
       <stop offset="1" stop-color="#0F4A32"/>
     </linearGradient>
+    <linearGradient id="p" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#E9FBF1"/>
+      <stop offset="1" stop-color="#9FE6BE"/>
+    </linearGradient>
   </defs>
   <rect width="64" height="64" rx="16" fill="url(#g)"/>
-  <circle cx="32" cy="32" r="23" fill="none" stroke="#BFF0D2" stroke-width="3.2" opacity=".32"/>
-  <circle cx="32" cy="32" r="14.5" fill="none" stroke="#BFF0D2" stroke-width="3.6" opacity=".68"/>
-  <circle cx="32" cy="32" r="6" fill="#BFF0D2"/>
+  <g transform="translate(32 26)" stroke="url(#p)" stroke-width="5.2" stroke-linecap="round" fill="none">
+    <path d="M -3 10 C -4 16 -8 18 -11 24"/>
+    <path d="M 3 10 C 4 16 8 18 11 24"/>
+    <path d="M -7 8 C -11 12 -17 12 -19 18"/>
+    <path d="M 7 8 C 11 12 17 12 19 18"/>
+    <path d="M -9 3 C -15 3 -19 -1 -22 2"/>
+    <path d="M 9 3 C 15 3 19 -1 22 2"/>
+  </g>
+  <g transform="translate(32 20)">
+    <ellipse cx="0" cy="0" rx="13.5" ry="12" fill="url(#p)"/>
+    <circle cx="-5" cy="-1" r="2.3" fill="#0A3223"/>
+    <circle cx="5" cy="-1" r="2.3" fill="#0A3223"/>
+  </g>
 </svg>
