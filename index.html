@@ -1045,9 +1045,9 @@ document.body.insertAdjacentHTML("afterbegin",`<svg aria-hidden="true" style="po
 `<linearGradient id="czcovbg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#141C18"/><stop offset=".6" stop-color="#0A3223"/><stop offset="1" stop-color="#0F4A32"/></linearGradient></defs></svg>`);
 function czhash(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
 function mulberry32(seed){return function(){seed|=0;seed=seed+0x6D2B79F5|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
-function catCover(cat,seed){const keys=cat.icons;const rnd=mulberry32(czhash(seed));const W=400,H=200,cols=7,rows=3;let g="",n=0;
-for(let r=0;r<rows;r++)for(let col=0;col<cols;col++){const cx=(col+.5)*(W/cols)+(rnd()-.5)*14,cy=(r+.5)*(H/rows)+(rnd()-.5)*12,key=keys[n%keys.length];n++;
-const rot=Math.round((rnd()-.5)*110),sc=(.6+rnd()*.35).toFixed(2),op=(.08+rnd()*.09).toFixed(2);
+function catCover(cat,seed){const keys=cat.icons;const rnd=mulberry32(czhash(seed));const W=400,H=200,cols=9,rows=5;let g="",n=0;
+for(let r=0;r<rows;r++)for(let col=0;col<cols;col++){const cw=W/cols,ch=H/rows,cx=(col+.5)*cw+(rnd()-.5)*cw*.9,cy=(r+.5)*ch+(rnd()-.5)*ch*.9,key=keys[n%keys.length];n++;
+const rot=Math.round((rnd()-.5)*200),sc=(.32+rnd()*1.05).toFixed(2),op=(.06+rnd()*.12).toFixed(2);
 g+=`<g transform="translate(${cx.toFixed(1)} ${cy.toFixed(1)}) rotate(${rot}) scale(${sc})" style="color:#ECF4EE" opacity="${op}"><use href="#ic-${key}" x="-12" y="-12" width="24" height="24"/></g>`}
 const hx=W*.78,hy=H*.3,hrot=Math.round((rnd()-.5)*16);
 g+=`<g transform="translate(${hx} ${hy}) rotate(${hrot}) scale(2.3)" style="color:#BFF0D2" opacity=".92"><use href="#ic-${cat.hero}" x="-12" y="-12" width="24" height="24"/></g>`;
